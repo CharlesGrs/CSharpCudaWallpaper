@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
         <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,7 +16,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="Shaders\Wallpaper.cu" />
+      <None Include="Shaders\wallpaper_shader.cu" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Core\" />
+      <Folder Include="Struct\" />
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="&quot;$(CUDA_PATH)\bin\nvcc&quot; -ptx &quot;$(ProjectDir)Shaders\wallpaper_shader.cu&quot; -o &quot;$(TargetDir)wallpaper_shader.ptx&quot;" />
+    </Target>
 
 </Project>
