@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ManagedCuda-100" Version="10.0.31" />
+      <PackageReference Include="ManagedCuda-NVRTC" Version="12.8.60" />
+      <PackageReference Include="ManagedCuda.NETStandard" Version="9.1.300" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="Shaders\Wallpaper.cu" />
+    </ItemGroup>
+
+</Project>
